@@ -115,6 +115,15 @@
 // Route::get('/book/add','bookController@create');
 // Route::post('/book/add','bookController@store')->name('book.add.post');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/',function(){
+    return view('welcome');
+
+})->middleware(['AgeControl']);
+
+Route::get('/age-control',function(){
+    echo 'You are under 18 years old';
+});
